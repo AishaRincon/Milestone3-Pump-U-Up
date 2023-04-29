@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import login from './container/';
 
-function loginPage() {
+function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -51,4 +51,4 @@ function loginPage() {
 
 
 
-export default loginPage;
+export default LoginPage;
