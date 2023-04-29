@@ -1,13 +1,21 @@
 // HomePage.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function HomePage() {
+function HomePage({ activities }) {
   return (
     <div>
       <h1>Home Page</h1>
-      {/* List of activities */}
+      <ul>
+        {activities.map(activity => (
+          <li key={activity.id}>
+            <Link to={`/activity/${activity.id}`}>{activity.name}</Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
 
 export default HomePage;
+
