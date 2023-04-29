@@ -3,9 +3,9 @@ import { ReactDOM } from 'react';
 import App from './App';
 import './index.css';
 import { Nav, NavLink, NavMenu } 
-import loginPage from './../components/loginPage';
+import loginPage from '../frontend/components/loginPage';
 import ActivityDetailsPage from './../components/activityDetailsPage';
-import HomePage from '../components/workoutList';
+import HomePage from '../frontend/components/workoutList';
 import ErrorPage from './../components/errorPage';
 
   
