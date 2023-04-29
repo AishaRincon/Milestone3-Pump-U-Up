@@ -2,8 +2,17 @@ const path = require('path');
 require('dotenv').config();
 
 module.exports = {
-  "config": path.resolve(__dirname, "backend", "config", "config.json"),
+  "config": path.resolve(__dirname, "backend", "config", "config.js"),
   "models-path": path.resolve(__dirname, "backend", "models"),
   "seeders-path": path.resolve(__dirname, "backend", "seeders"),
-  "migrations-path": path.resolve(__dirname, "backend", "migrations")
+  "migrations-path": "./backend/migrations"
 };
+
+
+// module.exports = {
+//     'config': './backend/config','config.js',
+//     'models-path': 'models',
+//     'migrations-path': 'migrations',
+//     'seeders-path': 'seeders'
+//   };
+  
