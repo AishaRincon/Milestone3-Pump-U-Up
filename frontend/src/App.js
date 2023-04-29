@@ -1,16 +1,28 @@
 import './App.css';
+import React from 'react';
+import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Routes, Route}
+    from 'react-router-dom';
+import Home from './pages';
+import login from './pages/about';
+import activityDetail from './pages/signup';
+import navbar from './pages/signup';
+import errorPage from './pages/contact';
+  
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
-    </div>
+      <Router>
+      <Navbar />
+      <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<login/>} />
+          <Route path='/activityDetail' element={<ActivityDetail/>} />
+          <Route path='/navbar' element={<Navbar/>} />
+          <Route path='/errorPage' element={<errorPage/>} />
+      </Routes>
+      </Router>
   );
-}
-
-export default App;
+  }
+    
+  export default App;
