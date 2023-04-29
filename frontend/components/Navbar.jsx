@@ -7,27 +7,12 @@ const Navbar = () => {
       <ul className="navbar-nav">
         <li className="nav-item">
           <Link to="/" className="nav-link">
-            Workout Details
+            Home
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/workoutList" className="nav-link">
-            Workout List
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/addWorkoutForm" className="nav-link">
-            Add Workout Form
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/login" className="nav-link">
-            Login
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/activityDetails" className="nav-link">
-            Activity Details
+          <Link to="/loginPage" className="nav-link">
+            log out
           </Link>
         </li>
       </ul>

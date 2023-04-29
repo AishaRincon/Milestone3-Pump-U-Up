@@ -1,5 +1,6 @@
 // 404Page.jsx
 import React from 'react';
+import Navbar from './navbar';
 
 function FourOhFourPage() {
   return (
@@ -10,4 +11,4 @@ function FourOhFourPage() {
   );
 }
 
-export default FourOhFourPage;
+export default fourOhFourPage;
