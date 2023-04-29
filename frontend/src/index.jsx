@@ -1,14 +1,14 @@
 import React from 'react';
-import { ReactDOM } from 'react';
-import App from './App';
+import { ReactDOM } from 'react-dom';
+import App from './src/App';
 import './index.css';
 import { Nav, NavLink, NavMenu } 
-import loginPage from './../components/loginPage';
-import ActivityDetailsPage from './../components/activityDetailsPage';
-import HomePage from '../components/workoutList';
+import loginPage from '../frontend/components/loginPage';
+import ActivityDetailsPage from '../frontend/components/activityDetailsPage';
+import HomePage from '../frontend/components/homePage';
 import ErrorPage from './../components/errorPage';
 
-  
+
 const Navbar = () => {
   return (
     <>
@@ -32,4 +32,4 @@ const Navbar = () => {
   );
 };
   
-export default Navbar;
+export default index;
