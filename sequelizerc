@@ -1,9 +1,22 @@
+// const path = require('path');
+// require('dotenv').config();
+
+// module.exports = {
+//     'config': path.resolve('./backend/config', 'config.js'),
+//     'models-path': path.resolve('./backend', 'models'),
+//     'seeders-path': path.resolve('./backend', 'seeders'),
+//     'migrations-path': path.resolve('./backend', 'migrations')
+// };
+
 const path = require('path');
 require('dotenv').config();
 
+const configPath = path.join(__dirname, 'backend', 'config', 'config.js');
+const migrationsPath = path.join(__dirname, 'backend', 'migrations');
+
 module.exports = {
-    'config': path.resolve('./backend/config', 'config.js'),
-    'models-path': path.resolve('./backend', 'models'),
-    'seeders-path': path.resolve('./backend', 'seeders'),
-    'migrations-path': path.resolve('./backend', 'migrations')
+  'config': configPath,
+  'models-path': path.resolve('./backend', 'models'),
+  'seeders-path': path.resolve('./backend', 'seeders'),
+  'migrations-path': migrationsPath
 };
