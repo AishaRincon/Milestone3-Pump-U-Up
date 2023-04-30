@@ -29,9 +29,9 @@ function App() {
       <div>
         <Navbar />
         <Routes>
-          <Route path="/" element={<HomePage activities={activities} />} />
+          {/* <Route path="/" element={<HomePage activities={activities} />} /> */}
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/activity/:id" element={<WorkoutDetailsPage />} />
+          <Route path="/activity/:id" element={<WorkoutDetailHistory />} />
           <Route path="*" element={<FourOhFourPage error={error} />} />
         </Routes>
       </div>

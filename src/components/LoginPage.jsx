@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
-import './assets/logo.png';
-import './App.css';
+import { Button } from 'react-bootstrap';
+import '../assets/logo.png';
+import '../App.css';
+import { Form } from 'react-bootstrap';
 
-function loginPage() {
+function LoginPage() {
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [username, setUsername] = useState('');
 
@@ -28,11 +29,11 @@ function loginPage() {
           </Button>
         </div>
         {showLoginForm && (
-          <Form onSubmit={handleLoginFormSubmit}>
-            <Form-Group controlId="formBasicUsername"> {/* form-group is a bootstrap class */} 
-              <Form-Label>Username</Form-Label> 
-              <Form-Control type="text" placeholder="Enter username" value={username} onChange={handleUsernameChange} />
-            </Form-Group>
+          <Form onSubmit={handleLoginSubmit}>
+            <Form.Group controlId="formBasicUsername"> {/* form-group is a bootstrap class */} 
+              <Form.Label>Username</Form.Label> 
+              <Form.Control type="text" placeholder="Enter username" value={username} onChange={handleUsernameChange} />
+            </Form.Group>
             <div className="text-center">
               <Button variant="primary" type="submit">Submit</Button>
             </div>
@@ -42,7 +43,7 @@ function loginPage() {
   );
 }
 
-export default loginPage;
+export default LoginPage;
 
 
 // return (
