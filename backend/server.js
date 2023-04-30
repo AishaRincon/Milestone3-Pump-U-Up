@@ -11,9 +11,9 @@
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
 
-// // CONTROLLERS
-// const usersController = require('./controllers/users_controller.js');
-// app.use('/api/users', usersController);
+// CONTROLLERS
+const usersController = require('./controllers/users_controller.js');
+app.use('/api/users', usersController);
 
 // const workoutsController = require('./controllers/workouts_controller.js');
 // app.use('/api/workouts', workoutsController);

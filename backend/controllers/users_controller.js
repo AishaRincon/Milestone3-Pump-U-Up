@@ -6,6 +6,8 @@ const { User } = db;
 users.get('/', async (req, res) => {
     try {
         // code for retrieving user
+        const user = await User.findAll();
+        res.status(200).json({ user });
     } catch (err) {
         res.status(500).send("Error retrieving user")
         console.log(err)
