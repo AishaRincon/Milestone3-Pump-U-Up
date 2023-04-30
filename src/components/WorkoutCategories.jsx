@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function HomePage({ activities }) {
+function WorkoutCategories ({ activities }) {
   return (
     <div>
       <h1>Choose your workout!</h1>
@@ -24,8 +24,6 @@ function HomePage({ activities }) {
   );
 }
 
-export default workoutCategories;
+export default WorkoutCategories;
 
-
-export default ActivityDetailsPage;
 

@@ -7,6 +7,7 @@ import { Form } from 'react-bootstrap';
 function LoginPage() {
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleLoginClick = () => {
     setShowLoginForm(!showLoginForm);
@@ -14,6 +15,10 @@ function LoginPage() {
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
   };
 
   const handleLoginSubmit = (e) => {
@@ -39,6 +44,8 @@ function LoginPage() {
             <Form.Group controlId="formBasicUsername"> {/* form-group is a bootstrap class */} 
               <Form.Label>Username</Form.Label> 
               <Form.Control type="text" placeholder="Enter username" value={username} onChange={handleUsernameChange} />
+              <Form.Label>Password</Form.Label> 
+              <Form.Control type="password" placeholder="Enter password" value={password} onChange={handlePasswordChange} />
             </Form.Group>
             <div className="text-center">
               <Button variant="primary" type="submit">Submit</Button>
