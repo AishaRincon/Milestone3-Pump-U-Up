@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import LoginPage from './components/LoginPage';
-// import HomePage from './components/HomePage';
+import HomePage from './components/HomePage';
 import WorkoutDetailHistory from './components/WorkoutDetailHistory';
 import FourOhFourPage from './components/FourOhFourPage';
 
@@ -29,10 +29,10 @@ function App() {
       <div>
         <Navbar />
         <Routes>
-          {/* <Route path="/" element={<HomePage activities={activities} />} /> */}
+          <Route path="/" element={<HomePage activities={activities} />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/activity/:id" element={<WorkoutDetailHistory />} />
-          <Route path="*" element={<FourOhFourPage error={error} />} />
+          <Route path="/*" element={<FourOhFourPage error={error} />} />
         </Routes>
       </div>
     </Router>

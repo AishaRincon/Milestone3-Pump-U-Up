@@ -22,7 +22,13 @@ function LoginPage() {
 }
 
   return (
-    <><div className="container">
+    <>
+     <div className="container">
+                <img className="logo"
+                    src={require("../assets/logo.png")}
+                    alt="Pump-U-Up logo, a barbell with weights and a muscular arm busting through the middle saying 'Pump-U-Up'." />
+      </div>
+      <div className="container">
         <div className="container-two"></div> {/* should this container have a different name? */}
           <Button variant="primary" onClick={handleLoginClick}>
             {showLoginForm ? 'Cancel' : 'Login'}
