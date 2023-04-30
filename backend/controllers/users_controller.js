@@ -6,10 +6,10 @@ const { User } = db;
 users.get('/', async (req, res) => {
     try {
         // code for retrieving user
-        const user = await User.findAll();
-        res.status(200).json({ user });
+        const found_users = await User.findAll();
+        res.status(200).json(found_users);
     } catch (err) {
-        res.status(500).send("Error retrieving user")
+        res.status(500).send("Error retrieving users")
         console.log(err)
     }
 })

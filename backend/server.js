@@ -11,9 +11,7 @@
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
 
-// CONTROLLERS
-const usersController = require('./controllers/users_controller.js');
-app.use('/api/users', usersController);
+
 
 // const workoutsController = require('./controllers/workouts_controller.js');
 // app.use('/api/workouts', workoutsController);
@@ -30,11 +28,17 @@ const app = express();
 const { Sequelize } = require('sequelize');
 const path = require('path');
 
+
+
 // MIDDLEWARE
 require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// CONTROLLERS
+const usersController = require('./controllers/users_controller.js');
+app.use('/api/users', usersController);
 
 // LISTEN
 app.listen(4000, () => {
