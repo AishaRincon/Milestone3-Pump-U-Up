@@ -1,11 +1,11 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './Navbar';
-import LoginPage from './LoginPage';
-import HomePage from './HomePage';
-import ActivityDetailsPage from './ActivityDetailsPage';
-import ErrorPage from './ErrorPage';
+import Navbar from './components/Navbar';
+import LoginPage from './components/LoginPage';
+// import HomePage from './components/HomePage';
+import WorkoutDetailHistory from './components/WorkoutDetailHistory';
+import FourOhFourPage from './components/FourOhFourPage';
 
 function App() {
   const [activities, setActivities] = useState([]);
@@ -31,8 +31,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage activities={activities} />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/activity/:id" element={<ActivityDetailsPage />} />
-          <Route path="*" element={<ErrorPage error={error} />} />
+          <Route path="/activity/:id" element={<WorkoutDetailsPage />} />
+          <Route path="*" element={<FourOhFourPage error={error} />} />
         </Routes>
       </div>
     </Router>

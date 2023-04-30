@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-function ActivityDetailsPage() {
+function WorkoutList() {
   const { id } = useParams();
   const [activity, setActivity] = useState(null);
   const [error, setError] = useState(null);
@@ -26,7 +26,7 @@ function ActivityDetailsPage() {
   } else {
     return (
       <div>
-        <h1>Activity Details Page</h1>
+        <h1>Workout Details Page</h1>
         <h2>{activity.name}</h2>
         <p>{activity.description}</p>
         <p>Duration: {activity.duration} minutes</p>
@@ -36,4 +36,4 @@ function ActivityDetailsPage() {
 }
 
 
-export default workoutList;
+export default WorkoutList;
