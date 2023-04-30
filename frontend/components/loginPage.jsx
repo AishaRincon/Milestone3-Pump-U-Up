@@ -1,7 +1,7 @@
-// LoginPage.jsx
 import React, { useState } from 'react';
+import logo from './logo.svg';
 
-function loginPage() {
+function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -30,24 +30,26 @@ function loginPage() {
 
   return (
     <div>
-      <h1>Login Page</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} />
-        </label>
-        <label>
-          Password:
-          <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
-        </label>
-        {error && <p>{error}</p>}
-        <button type="submit">Log in</button>
-      </form>
+      <div className="container">
+        <form onSubmit={handleSubmit}>
+          <button className="login-button">Login</button>
+            <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} />
+          
+          <label>
+            Password:
+            <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+          </label>
+          {error && <p>{error}</p>}
+          <button type="submit">Log in</button>
+        </form>
+      </div>
     </div>
   );
+
+
 }
 
 
 
 
-export default loginPage;
+export default LoginPage;

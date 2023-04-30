@@ -1,27 +1,39 @@
-import React, { useState } from 'react';
-import loginPage from './loginPage.jsx';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
-const [username, setUsername] = useState('');
-const [password, setPassword] = useState('');
-  return(
-    <div className = "login-wrapper">
-        <h1>Welcome to Pump-U-Up</h1>
-        <form>
-            {/* on change for login, username, and password */}
-            <div>
-            <lable>
-            <p>username</p>
-            <input type="text" onChange={(e) => setUsername(e.target.value)} />
-            </lable>
-            <lable>
-            <p>password</p>
-            <input type="text" onChange={(e) => setUsername(e.target.value)} />
-            </lable>
-            </div>
-                <div>
-                <button type="submit">Login</button>
-                </div>
-            {/* on submit for create account? */}
-        </form>
+const WorkoutDetailHistory = ({ workoutHistory }) => {
+  return (
+    <div>
+      <Navbar />
+      <h2>Workout History</h2>
+      {workoutHistory.length === 0 ? (
+        <p>No workout history available.</p>
+      ) : (
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Workout Name</th>
+              <th>Duration</th>
+              <th>Calories Burned</th>
+            </tr>
+          </thead>
+          <tbody>
+            {workoutHistory.map((workout) => (
+              <tr key={workout.id}>
+                <td>{workout.date}</td>
+                <td>{workout.name}</td>
+                <td>{workout.duration}</td>
+                <td>{workout.caloriesBurned}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+      <Link to="/add-workout">Add Workout</Link>
     </div>
-  )
+  );
+};
+
+export default WorkoutDetailHistory;
