@@ -1,6 +1,5 @@
-// LoginPage.jsx
 import React, { useState } from 'react';
-import login from './container/';
+import logo from './logo.svg';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -31,21 +30,23 @@ function LoginPage() {
 
   return (
     <div>
-      <h1>Login Page</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} />
-        </label>
-        <label>
-          Password:
-          <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
-        </label>
-        {error && <p>{error}</p>}
-        <button type="submit">Log in</button>
-      </form>
+      <div className="container">
+        <form onSubmit={handleSubmit}>
+          <button className="login-button">Login</button>
+            <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} />
+          
+          <label>
+            Password:
+            <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+          </label>
+          {error && <p>{error}</p>}
+          <button type="submit">Log in</button>
+        </form>
+      </div>
     </div>
   );
+
+
 }
 
 
