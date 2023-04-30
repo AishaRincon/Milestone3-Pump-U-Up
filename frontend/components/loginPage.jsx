@@ -1,55 +1,74 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
+import { Button, Form } from 'react-bootstrap';
+import './assets/logo.png';
+import './App.css';
 
 function loginPage() {
+  const [showLoginForm, setShowLoginForm] = useState(false);
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch('/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
-      if (!response.ok) {
-        setError('Invalid username or password');
-      } else {
-        // Redirect to homepage on successful login
-        window.location.replace('/');
-      }
-    } catch (error) {
-      console.error(error);
-      setError('Something went wrong. Please try again later.');
-    }
+  const handleLoginClick = () => {
+    setShowLoginForm(!showLoginForm);
   };
 
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+  };
+
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+ //does this need to go to the backend for authentication??
+}
+
   return (
-    <div>
-      <div className="container">
-        <form onSubmit={handleSubmit}>
-          <button className="login-button">Login</button>
-            <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} />
-          
-          <label>
-            Password:
-            <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
-          </label>
-          {error && <p>{error}</p>}
-          <button type="submit">Log in</button>
-        </form>
-      </div>
-    </div>
+    <><div className="container">
+        <div className="container-two"></div> {/* should this container have a different name? */}
+          <Button variant="primary" onClick={handleLoginClick}>
+            {showLoginForm ? 'Cancel' : 'Login'}
+          </Button>
+        </div>
+        {showLoginForm && (
+          <Form onSubmit={handleLoginFormSubmit}>
+            <Form-Group controlId="formBasicUsername"> {/* form-group is a bootstrap class */} 
+              <Form-Label>Username</Form-Label> 
+              <Form-Control type="text" placeholder="Enter username" value={username} onChange={handleUsernameChange} />
+            </Form-Group>
+            <div className="text-center">
+              <Button variant="primary" type="submit">Submit</Button>
+            </div>
+          </Form>
+        )}
+    </>
   );
-
-
 }
 
 
+// return (
+//   <>
+//       <Link className="container" to="/">
+//           <img className="logo"
+//               src={require("../img/home.png")}
+//               alt="Buck-It's logo, a bucket with a rainbow coming out of it saying 'home'." />
+//       </Link>
+//       <h1 className="cat-title">❝{props.category.title}❞</h1>
+//       <div className="flex">
+//           <button onClick={() => setClicked(!clicked)}>I have a new idea!</button></div>
+//       {clicked
+//           ? <ListForm id={props.category.category_id} />
+//           : null
+//       }
+//       {mapLists}
+//   </>
+// )
+// }
+
+// export default CategoryPage;
+
+// <button onClick={() => setClicked(!clicked)}>I have a new idea!</button></div>
+//       {clicked
+//           ? <ListForm id={props.category.category_id} />
+//           : null
 
 
-export default loginPage;
+//           function CategoryPage(props) {
+//             const [clicked, setClicked] = useState(false);
