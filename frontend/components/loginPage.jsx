@@ -42,6 +42,8 @@ function loginPage() {
   );
 }
 
+export default loginPage;
+
 
 // return (
 //   <>
