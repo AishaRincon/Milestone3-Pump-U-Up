@@ -46,3 +46,14 @@ body {
   transform: scale(1.05);
   box-shadow: 0px 0px 10px #93987c;
 }
+
+.error {
+  width: 25%;
+  height: 25%;
+  align-items: center;
+}
+
+h1 {
+  font-family: Bebas Neue;
+  color: #0000
+}
