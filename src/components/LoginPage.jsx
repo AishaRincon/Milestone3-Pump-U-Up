@@ -6,11 +6,16 @@ import { Form } from 'react-bootstrap';
 
 function LoginPage() {
   const [showLoginForm, setShowLoginForm] = useState(false);
+  const [showSignUpForm, setShowSignUpForm] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLoginClick = () => {
     setShowLoginForm(!showLoginForm);
+  };
+
+  const handleSignUpClick = () => {
+    setShowSignUpForm(!showSignUpForm);
   };
 
   const handleUsernameChange = (e) => {
@@ -23,7 +28,22 @@ function LoginPage() {
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
- //does this need to go to the backend for authentication??
+ //check if username and password are correct
+    
+    //if correct, redirect to userHome
+    //if incorrect, display error message (username or password is incorrect)
+
+
+}
+
+const handleSignUpSubmit = (e) => {
+  e.preventDefault();
+// check if username is already taken
+// if username is taken, display error message (choose another username)
+// if username is not taken, create new user and redirect to userHome
+
+
+
 }
 
   return (
@@ -34,9 +54,14 @@ function LoginPage() {
                     alt="Pump-U-Up logo, a barbell with weights and a muscular arm busting through the middle saying 'Pump-U-Up'." />
       </div>
       <div className="container">
-        <div className="container-two"></div> {/* should this container have a different name? */}
+        <div className="log-in-button"></div> {/* should this container have a different name? */}
           <Button variant="primary" onClick={handleLoginClick}>
             {showLoginForm ? 'Cancel' : 'Login'}
+          </Button>
+        </div>
+        <div className="sign-up-button">
+          <Button variant="primary" onClick={handleSignUpClick}>
+            {showSignUpForm ? 'Cancel' : 'Sign Up'}
           </Button>
         </div>
         {showLoginForm && (
@@ -49,6 +74,19 @@ function LoginPage() {
             </Form.Group>
             <div className="text-center">
               <Button variant="primary" type="submit">Submit</Button>
+            </div>
+          </Form>
+        )}
+        {showSignUpForm && (
+          <Form onSubmit={handleSignUpSubmit}>
+            <Form.Group controlId="formBasicUsername"> {/* form-group is a bootstrap class */} 
+              <Form.Label>Username</Form.Label> 
+              <Form.Control type="text" placeholder="Enter username" value={username} onChange={handleUsernameChange} />
+              <Form.Label>Password</Form.Label> 
+              <Form.Control type="password" placeholder="Enter password" value={password} onChange={handlePasswordChange} />
+            </Form.Group>
+            <div className="text-center">
+              <Button variant="primary" type="submit">Sign Up</Button>
             </div>
           </Form>
         )}
