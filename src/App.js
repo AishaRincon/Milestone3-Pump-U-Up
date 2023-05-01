@@ -28,7 +28,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
           {/* <Route path="/" element={<HomePage activities={activities} />} /> */}
           <Route path="/" element={<LoginPage />} />
