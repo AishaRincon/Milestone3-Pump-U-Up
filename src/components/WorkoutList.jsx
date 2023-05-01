@@ -1,20 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-{/* import supabase? */}
+// import { useState, useEffect } from 'react';
 
-function workoutList() {
-  const [workouts, setWorkouts] = useState([]);
+// function WorkoutList() {
+//   const [workouts, setWorkouts] = useState([]);
 
-  useEffect(() => {
-    async function fetchWorkouts() {
-      const response = await fetch('http://localhost:4000/api/workouts');
-      const data = await response.json();
-      setWorkouts(data);
-    }
-    fetchWorkouts();
-  }
-)}
+//   useEffect(() => {
+//     // Fetch workouts data from an API
+//     fetch('https://example.com/api/workouts')
+//       .then(response => response.json())
+//       .then(data => setWorkouts(data))
+//       .catch(error => console.error(error));
+//   }, []);
 
+//   return (
+//     <div>
+//       <h1>Workout List</h1>
+//       <ul>
+//         {workouts.map(workout => (
+//           <li key={workout.id}>
+//             <h2>{workout.name}</h2>
+//             <p>{workout.description}</p>
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
 
-export default workoutList;
+// export default WorkoutList;

@@ -47,6 +47,23 @@
   transform: scale(1.05);
   box-shadow: 0px 0px 10px #93987c;
 }
+.error {
+  width: 50%;
+  height: 50%;
+}
+
+.container {
+justify-content: space-between ;
+  justify-content: left ;
+  align-items: center;
+
+}
+
+.sign-up-button {
+  justify-content: right;
+  align-items: center;
+
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

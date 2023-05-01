@@ -46,7 +46,7 @@ const handleLoginSubmit = async (e) => {
     if(response.ok) {
       console.log('login successful');
       // redirect to userHome
-      history.push('/userHome');
+      History.push('/userHome');
     }
   } catch (error) {
     console.error('Error:', error);
@@ -79,7 +79,7 @@ try {
   if(response.ok) {
     console.log('signup successful');
     // redirect to userHome
-    history.push('/userHome');
+    History.push('/userHome');
   }
 } catch (error) {
   console.error('Error:', error);
@@ -97,10 +97,12 @@ try {
                     alt="Pump-U-Up logo, a barbell with weights and a muscular arm busting through the middle saying 'Pump-U-Up'." />
       </div>
       <div className="container">
-        <div className="log-in-button align-items-left"></div> {/* should this container have a different name? */}
-          <Button variant="primary" onClick={handleLoginClick}>
+        <div className="log-in-button">
+        <Button variant="primary" onClick={handleLoginClick}>
             {showLoginForm ? 'Cancel' : 'Login'}
           </Button>
+          </div> {/* should this container have a different name? */}
+          
         </div>
         <div className="sign-up-button">
           <Button variant="primary" onClick={handleSignUpClick}>
