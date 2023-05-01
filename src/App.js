@@ -28,9 +28,7 @@ function App() {
   return (
     <Router>
       <div>
-        {/* <Navbar /> */}
         <Routes>
-          {/* <Route path="/" element={<HomePage activities={activities} />} /> */}
           <Route path="/" element={<LoginPage />} />
           <Route path="/userHome" element={<WorkoutCategories />} />
           <Route path="/activity/:id" element={<WorkoutDetailHistory />} />
