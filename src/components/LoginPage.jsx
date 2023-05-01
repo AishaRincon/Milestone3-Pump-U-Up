@@ -45,15 +45,15 @@ const handleLoginSubmit = async (e) => {
     console.error('Error:', error);
   }
 };
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
- //check if username and password are correct
+//   const handleLoginSubmit = (e) => {
+//     e.preventDefault();
+//  //check if username and password are correct
     
-    //if correct, redirect to userHome
-    //if incorrect, display error message (username or password is incorrect)
+//     //if correct, redirect to userHome
+//     //if incorrect, display error message (username or password is incorrect)
 
 
-}
+// }
 
 const handleSignUpSubmit = (e) => {
   e.preventDefault();
@@ -116,32 +116,4 @@ const handleSignUpSubmit = (e) => {
 export default LoginPage;
 
 
-// return (
-//   <>
-//       <Link className="container" to="/">
-//           <img className="logo"
-//               src={require("../img/home.png")}
-//               alt="Buck-It's logo, a bucket with a rainbow coming out of it saying 'home'." />
-//       </Link>
-//       <h1 className="cat-title">❝{props.category.title}❞</h1>
-//       <div className="flex">
-//           <button onClick={() => setClicked(!clicked)}>I have a new idea!</button></div>
-//       {clicked
-//           ? <ListForm id={props.category.category_id} />
-//           : null
-//       }
-//       {mapLists}
-//   </>
-// )
-// }
 
-// export default CategoryPage;
-
-// <button onClick={() => setClicked(!clicked)}>I have a new idea!</button></div>
-//       {clicked
-//           ? <ListForm id={props.category.category_id} />
-//           : null
-
-
-//           function CategoryPage(props) {
-//             const [clicked, setClicked] = useState(false);
