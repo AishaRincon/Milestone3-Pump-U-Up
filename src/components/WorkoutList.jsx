@@ -11,19 +11,14 @@
 //       .catch(error => console.error(error));
 //   }, []);
 
-//   return (
-//     <div>
-//       <h1>Workout List</h1>
-//       <ul>
-//         {workouts.map(workout => (
-//           <li key={workout.id}>
-//             <h2>{workout.name}</h2>
-//             <p>{workout.description}</p>
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// }
+  useEffect(() => {
+    async function fetchWorkouts() {
+      const response = await fetch('http://localhost:8080/api/workouts');
+      const data = await response.json();
+      setWorkouts(data);
+    }
+    fetchWorkouts();
+  }
+)}
 
 // export default WorkoutList;
