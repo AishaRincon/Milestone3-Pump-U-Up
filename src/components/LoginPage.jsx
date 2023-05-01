@@ -73,7 +73,7 @@ const handleSignUpSubmit = (e) => {
                     alt="Pump-U-Up logo, a barbell with weights and a muscular arm busting through the middle saying 'Pump-U-Up'." />
       </div>
       <div className="container">
-        <div className="log-in-button"></div> {/* should this container have a different name? */}
+        <div className="log-in-button align-items-left"></div> {/* should this container have a different name? */}
           <Button variant="primary" onClick={handleLoginClick}>
             {showLoginForm ? 'Cancel' : 'Login'}
           </Button>

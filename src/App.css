@@ -5,6 +5,7 @@
   width:35%;
   height: 35%;
   align-items: center;
+  justify-content: center;
 }
 
 .wrapper {
@@ -51,3 +52,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
