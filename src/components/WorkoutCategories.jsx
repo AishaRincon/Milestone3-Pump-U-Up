@@ -1,10 +1,12 @@
 // workout Categories
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
 function WorkoutCategories ({ activities }) {
   return (
     <div>
+      <Navbar/>
       <h1>Choose your workout!</h1>
       <div className="workouts-container">
         <Link to="/cardio" className="box">
