@@ -2,8 +2,8 @@
   text-align: center;
 }
 .logo {
-  width: 25%;
-  height: 25%;
+  width:50%;
+  height: 50%;
   align-items: center;
 }
 
@@ -17,7 +17,7 @@
   box-sizing: border-box;
 }
 
-body {
+#root {
   background-color: #fefae0;
   font-family: Bebas Neue;
   color: #FEFAE0;
@@ -45,4 +45,9 @@ body {
 .box:hover {
   transform: scale(1.05);
   box-shadow: 0px 0px 10px #93987c;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
