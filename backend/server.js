@@ -45,6 +45,7 @@ app.use('/api/users', usersController);
 const workoutsController = require('./controllers/workouts_controller.js');
 app.use('/api/workouts', workoutsController);
 
+// POST route for user login
 app.post('/api/login', async (req, res) => {
     const { username, password } = req.body;
     // retrieve user from database
