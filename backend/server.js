@@ -40,6 +40,9 @@ app.use(express.urlencoded({ extended: false }));
 const usersController = require('./controllers/users_controller.js');
 app.use('/api/users', usersController);
 
+const workoutsController = require('./controllers/workouts_controller.js');
+app.use('/api/workouts', workoutsController);
+
 // LISTEN
 app.listen(4000, () => {
     console.log(`Server is running on port 4000`);
