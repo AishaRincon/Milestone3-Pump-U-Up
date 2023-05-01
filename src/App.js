@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+ import Navbar from './components/Navbar';
 import LoginPage from './components/LoginPage';
 // import HomePage from './components/HomePage';
 import WorkoutDetailHistory from './components/WorkoutDetailHistory';

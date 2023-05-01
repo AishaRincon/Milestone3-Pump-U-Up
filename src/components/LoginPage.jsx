@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
+
 import '../assets/logo.png';
 import '../App.css';
-import { Form } from 'react-bootstrap';
+
 
 function LoginPage() {
   const [showLoginForm, setShowLoginForm] = useState(false);
@@ -21,10 +22,24 @@ function LoginPage() {
     setPassword(e.target.value);
   };
 
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
- //does this need to go to the backend for authentication??
-}
+//   const handleLoginSubmit = (e) => {
+//     e.preventDefault();
+//  //does this need to go to the backend for authentication??
+// }
+const handleLoginSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    });
+    const data = await response.json();
+    // handle response from backend here
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
 
   return (
     <>
