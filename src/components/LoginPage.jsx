@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
 import '../assets/logo.png';
 import '../App.css';
@@ -41,6 +42,12 @@ const handleLoginSubmit = async (e) => {
     });
     const data = await response.json();
     // handle response from backend here
+    console.log(data);
+    if(response.ok) {
+      console.log('login successful');
+      // redirect to userHome
+      history.push('/userHome');
+    }
   } catch (error) {
     console.error('Error:', error);
   }
@@ -55,11 +62,28 @@ const handleLoginSubmit = async (e) => {
 
 // }
 
-const handleSignUpSubmit = (e) => {
+const handleSignUpSubmit = async (e) => {
   e.preventDefault();
 // check if username is already taken
 // if username is taken, display error message (choose another username)
 // if username is not taken, create new user and redirect to userHome
+try {
+  const response = await fetch('/api/signup', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username, password })
+  });
+  const data = await response.json();
+  // handle response from backend here
+  console.log(data);
+  if(response.ok) {
+    console.log('signup successful');
+    // redirect to userHome
+    history.push('/userHome');
+  }
+} catch (error) {
+  console.error('Error:', error);
+}
 
 
 

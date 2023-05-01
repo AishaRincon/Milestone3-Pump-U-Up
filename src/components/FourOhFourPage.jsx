@@ -6,9 +6,12 @@ function FourOhFourPage() {
   return (
     <div>
       <Navbar/>
-      <h1>Oops!</h1>
-      <p>The page you requested was not found. Let's get you back on track!</p>
+      <div>
+        <h1>Oops!</h1>
+        <p>The page you requested was not found. Let's get you back on track!</p>
+      </div>
       <img className="error" src={require("../assets/running.jpg")} alt="Person running on a treadmill and the words 'Oops! The page you requested was not found. Let's get you back on track!'" />
+      <Link to="/userHome">Home</Link>
     </div>
   );
 }
