@@ -92,7 +92,7 @@ try {
   return (
     <>
       <div className="welcome">
-        <h1>Let's get ready to... Pump-U-Up!</h1>
+        <h3>Let's get ready to... Pump-U-Up!</h3>
         <p>Create an account and start tracking your progress from wimp to stud.</p>
       </div>
       <div className="button-container">

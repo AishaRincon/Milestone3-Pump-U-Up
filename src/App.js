@@ -29,6 +29,7 @@ function App() {
     <Router>
       <div>
         <Navbar />
+        <h1>Pump-U-Up</h1>
         <img className="logo"
                     src={require("./assets/logo.png")}
                     alt="Pump-U-Up logo, a barbell with weights and a muscular arm busting through the middle saying 'Pump-U-Up'." />
