@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
-import '../assets/logo.png';
 import '../App.css';
 
 
@@ -11,6 +10,8 @@ function LoginPage() {
   const [showSignUpForm, setShowSignUpForm] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const history = useHistory();
 
   const handleLoginClick = () => {
     setShowLoginForm(!showLoginForm);
@@ -28,10 +29,6 @@ function LoginPage() {
     setPassword(e.target.value);
   };
 
-//   const handleLoginSubmit = (e) => {
-//     e.preventDefault();
-//  //does this need to go to the backend for authentication??
-// }
 const handleLoginSubmit = async (e) => {
   e.preventDefault();
   try {
@@ -46,7 +43,7 @@ const handleLoginSubmit = async (e) => {
     if(response.ok) {
       console.log('login successful');
       // redirect to userHome
-      History.push('/userHome');
+      history.push('/userHome');
     }
   } catch (error) {
     console.error('Error:', error);
@@ -79,7 +76,7 @@ try {
   if(response.ok) {
     console.log('signup successful');
     // redirect to userHome
-    History.push('/userHome');
+    history.push('/userHome');
   }
 } catch (error) {
   console.error('Error:', error);
