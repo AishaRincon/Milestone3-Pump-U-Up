@@ -5,7 +5,6 @@ import Navbar from "./Navbar";
 function FourOhFourPage() {
   return (
     <div>
-      <Navbar/>
       <div>
         <h1>Oops!</h1>
         <p>The page you requested was not found. Let's get you back on track!</p>

@@ -55,15 +55,23 @@
   height: 50%;
 }
 
-.container {
-justify-content: space-between ;
-  justify-content: left ;
+.button-container {
+  display: flex;
+  justify-content: space-between;
+ 
+}
+
+
+.sign-up-button {
+  display: flex;
+  justify-content: right;
   align-items: center;
 
 }
 
-.sign-up-button {
-  justify-content: right;
+.log-in-button {
+  display: flex;
+  justify-content: left;
   align-items: center;
 
 }

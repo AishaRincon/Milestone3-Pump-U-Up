@@ -91,24 +91,18 @@ try {
 
   return (
     <>
-     <div className="container">
-                <img className="logo"
-                    src={require("../assets/logo.png")}
-                    alt="Pump-U-Up logo, a barbell with weights and a muscular arm busting through the middle saying 'Pump-U-Up'." />
-      </div>
-      <div className="container">
+      <div className="button-container">
         <div className="log-in-button">
-        <Button variant="primary" onClick={handleLoginClick}>
+          <Button variant="primary" onClick={handleLoginClick}>
             {showLoginForm ? 'Cancel' : 'Login'}
           </Button>
-          </div> {/* should this container have a different name? */}
-          
-        </div>
+        </div> {/* should this container have a different name? */}
         <div className="sign-up-button">
           <Button variant="primary" onClick={handleSignUpClick}>
             {showSignUpForm ? 'Cancel' : 'Sign Up'}
           </Button>
         </div>
+      </div>
         {showLoginForm && (
           <Form onSubmit={handleLoginSubmit} className=''>
             <Form.Group controlId="formBasicUsername"> {/* form-group is a bootstrap class */} 
@@ -131,7 +125,7 @@ try {
               <Form.Control type="password" placeholder="Enter password" value={password} onChange={handlePasswordChange} />
             </Form.Group>
             <div className="text-center">
-              <Button variant="primary" type="submit">Sign Up</Button>
+              <Button variant="primary" type="submit">Let's Pump-U-Up!</Button>
             </div>
           </Form>
         )}
