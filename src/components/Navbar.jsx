@@ -10,7 +10,6 @@ function NavMenu() {
         <Navbar.Brand href="/userHome">Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Nav className="nv-auto">
-            {/* <Nav.Link href="/login">Home</Nav.Link> */}
             <Nav.Link href="/logout">Logout</Nav.Link>
           </Nav>
       </Container>

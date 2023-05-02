@@ -29,10 +29,14 @@ function App() {
     <Router>
       <div>
         <Navbar />
+        <img className="logo"
+                    src={require("./assets/logo.png")}
+                    alt="Pump-U-Up logo, a barbell with weights and a muscular arm busting through the middle saying 'Pump-U-Up'." />
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/userHome" element={<WorkoutCategories />} />
           <Route path="/activity/:id" element={<WorkoutDetailHistory />} />
+          <Route path='/logout' element={<LoginPage />} />
           <Route path="/*" element={<FourOhFourPage error={error} />} />
         </Routes>
       </div>
