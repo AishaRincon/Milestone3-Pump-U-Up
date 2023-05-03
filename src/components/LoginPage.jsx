@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import '../App.css';
 
@@ -11,7 +11,7 @@ function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleLoginClick = () => {
     setShowLoginForm(!showLoginForm);
@@ -32,18 +32,17 @@ function LoginPage() {
 const handleLoginSubmit = async (e) => {
   e.preventDefault();
   try {
-    const response = await fetch('/api/login', {
+    const response = await fetch('/api/users/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password })
     });
     const data = await response.json();
     // handle response from backend here
-    console.log(data);
     if(response.ok) {
       console.log('login successful');
       // redirect to userHome
-      history.push('/userHome');
+      navigate('/userHome');
     }
   } catch (error) {
     console.error('Error:', error);
@@ -65,21 +64,24 @@ const handleSignUpSubmit = async (e) => {
 // if username is taken, display error message (choose another username)
 // if username is not taken, create new user and redirect to userHome
 try {
-  const response = await fetch('/api/signup', {
+  const response = await fetch('/api/users/signup', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, password })
   });
   const data = await response.json();
   // handle response from backend here
-  console.log(data);
   if(response.ok) {
     console.log('signup successful');
+    // message to user that signup was successful
+    document.getElementById('message').textContent = 'Account created. Let\'s Pump-U-Up!';
     // redirect to userHome
-    history.push('/userHome');
+    navigate('/userHome');
   }
 } catch (error) {
-  console.error('Error:', error);
+    console.error('Error:', error);
+    // message to user that signup was unsuccessful
+    document.getElementById('message').textContent = 'Sign up failed. If at first you don\'t succeed, try, try again';
 }
 
 
@@ -90,14 +92,14 @@ try {
     <>
       <div className="welcome">
         <h3>Let's get ready to... Pump-U-Up!</h3>
-        <p>Create an account and start tracking your progress from wimp to stud.</p>
+        <p>Create an account and start tracking your workouts as you progress from wimp to stud.</p>
       </div>
       <div className="button-container">
         <div className="log-in-button">
           <Button variant="primary" onClick={handleLoginClick}>
             {showLoginForm ? 'Cancel' : 'Login'}
           </Button>
-        </div> {/* should this container have a different name? */}
+        </div> 
         <div className="sign-up-button">
           <Button variant="primary" onClick={handleSignUpClick}>
             {showSignUpForm ? 'Cancel' : 'Sign Up'}
@@ -108,13 +110,14 @@ try {
           <Form onSubmit={handleLoginSubmit} className=''>
             <Form.Group controlId="formBasicUsername"> {/* form-group is a bootstrap class */} 
               <Form.Label>Username </Form.Label > 
-              <Form.Control type="text"  placeholder="Enter username" value={username} onChange={handleUsernameChange} />
+              <Form.Control type="text"  placeholder="Enter username" value={username} onChange={handleUsernameChange} required/>
               <Form.Label>Password</Form.Label> 
-              <Form.Control type="password" placeholder="Enter password" value={password} onChange={handlePasswordChange} />
+              <Form.Control type="password" placeholder="Enter password" value={password} onChange={handlePasswordChange} required />
             </Form.Group>
             <div className="text-center">
               <Button variant="primary" type="submit">Submit</Button>
             </div>
+            <div id="message"></div>
           </Form>
         )}
         {showSignUpForm && (

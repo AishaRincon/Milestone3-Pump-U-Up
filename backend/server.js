@@ -22,6 +22,8 @@
 // });
 
 // DEPENDENCIES
+import { createClient } from '@supabase/supabase-js'
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const express = require('express');
@@ -29,6 +31,9 @@ const cors = require('cors');
 const app = express();
 const { Sequelize } = require('sequelize');
 const path = require('path');
+const { User } = require('./models');
+const { Workout } = require('./models');
+
 
 
 
@@ -45,31 +50,9 @@ app.use('/api/users', usersController);
 const workoutsController = require('./controllers/workouts_controller.js');
 app.use('/api/workouts', workoutsController);
 
-// POST route for user login
-app.post('/api/login', async (req, res) => {
-    const { username, password } = req.body;
-    // retrieve user from database
-    const user = await User.findOne({ where: { username: username } });
-    
-    // if no user found, send error response (user not found)
-    if (!user) {
-        return res.status(401).send('User not found');
-    }
 
-    // if user found, check password against hashed password
-    const matchedPassword = await bcrypt.compare(password, user.password);
 
-    // if password is not a match, send error response (invalid password)
-    if (!matchedPassword) {
-        return res.status(401).send('Invalid password');
-    }
 
-    // if password is correct, create token with user id as payload
-    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
-
-    // return token to client
-    res.status(200).json({ token: token });
-});
 
 // LISTEN
 app.listen(8080, () => {
