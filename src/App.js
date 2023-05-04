@@ -1,12 +1,16 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
  import Navbar from './components/Navbar';
 import LoginPage from './components/LoginPage';
 // import HomePage from './components/HomePage';
 import WorkoutDetailHistory from './components/WorkoutDetailHistory';
 import FourOhFourPage from './components/FourOhFourPage';
 import WorkoutCategories from './components/WorkoutCategories';
+import UpperBody from './components/UpperBody';
+import LowerBody from './components/LowerBoby';
+import Core from './components/Core';
+
 
 function App() {
   const [activities, setActivities] = useState([]);
@@ -27,6 +31,7 @@ function App() {
 
   return (
     <Router>
+      
       <div>
         <Navbar />
         <h1>Pump-U-Up</h1>
@@ -39,6 +44,10 @@ function App() {
           <Route path="/activity/:id" element={<WorkoutDetailHistory />} />
           <Route path='/logout' element={<LoginPage />} />
           <Route path="/*" element={<FourOhFourPage error={error} />} />
+          <Route path="/upper-body" element={<UpperBody />} />
+        <Route path="/lower-Body" element={<LowerBody />} />
+        <Route path="/core" element={<Core />} />
+          
         </Routes>
       </div>
     </Router>
