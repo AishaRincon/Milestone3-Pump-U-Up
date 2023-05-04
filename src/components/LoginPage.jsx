@@ -32,7 +32,8 @@ function LoginPage() {
 const handleLoginSubmit = async (e) => {
   e.preventDefault();
   try {
-    const response = await fetch('/api/users/login', {
+    // const response = await fetch('/api/users/login', {
+    const response = await fetch(`http://localhost:8080/api/users/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password })
@@ -64,24 +65,25 @@ const handleSignUpSubmit = async (e) => {
 // if username is taken, display error message (choose another username)
 // if username is not taken, create new user and redirect to userHome
 try {
-  const response = await fetch('/api/users/signup', {
+  const response = await fetch('http://localhost:8080/api/users/signup', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, password })
   });
   const data = await response.json();
+  console.log(response)
   // handle response from backend here
-  if(response.ok) {
+  if(data.success) {
     console.log('signup successful');
     // message to user that signup was successful
-    document.getElementById('message').textContent = 'Account created. Let\'s Pump-U-Up!';
+    // document.getElementById('message').textContent = 'Account created. Let\'s Pump-U-Up!';
     // redirect to userHome
     navigate('/userHome');
   }
 } catch (error) {
     console.error('Error:', error);
     // message to user that signup was unsuccessful
-    document.getElementById('message').textContent = 'Sign up failed. If at first you don\'t succeed, try, try again';
+    // document.getElementById('message').textContent = 'Sign up failed. If at first you don\'t succeed, try, try again';
 }
 
 

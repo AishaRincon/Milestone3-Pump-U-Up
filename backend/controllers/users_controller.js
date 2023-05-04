@@ -1,4 +1,5 @@
-const users = require('express').Router();
+const express = require('express');
+const users = express.Router();
 const db = require('../models');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
@@ -27,7 +28,7 @@ const { User } = db;
 // })
 
 // POST route for user login
-app.post('/login', async (req, res) => {
+users.post('/login', async (req, res) => {
     try {
     const { username, password } = req.body;
     // retrieve user from database
@@ -35,7 +36,7 @@ app.post('/login', async (req, res) => {
     
     // if no user found, send error response (user not found)
     if (!user) {
-        return res.status(401).json({error: 'Invalid username or password'});
+        return res.status(401).json({error: 'Invalid username'});
     }
 
     // if user found, check password against hashed password
@@ -52,7 +53,7 @@ app.post('/login', async (req, res) => {
     // return token to client
     res.status(200).json({ token: token });
 } catch (err) {
-    res.status(500).send('Error logging in');
+    res.status(500).json({ error: 'Error logging in' });
 }
 });
 
@@ -93,7 +94,7 @@ users.post('/signup', async (req, res) => {
             res.status(200).json({ token: token });
         }
         catch (err) {
-            res.status(400).send('Unable to create user');
+            res.status(400).json({ error: 'Error creating user' })
         }
     });
 

@@ -8,28 +8,29 @@ import WorkoutDetailHistory from './components/WorkoutDetailHistory';
 import FourOhFourPage from './components/FourOhFourPage';
 import WorkoutCategories from './components/WorkoutCategories';
 import UpperBody from './components/UpperBody';
-import LowerBody from './components/LowerBoby';
+import LowerBody from './components/LowerBody';
 import Core from './components/Core';
 
 
 function App() {
-  const [activities, setActivities] = useState([]);
+  // const [activities, setActivities] = useState([]);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetch('/api/activities')
-      .then(res => res.json())
-      .then(
-        data => {
-          setActivities(data);
-        },
-        error => {
-          setError(error);
-        }
-      );
-  }, []);
+  // useEffect(() => {
+  //   fetch('/api/activities')
+  //     .then(res => res.json())
+  //     .then(
+  //       data => {
+  //         setActivities(data);
+  //       },
+  //       error => {
+  //         setError(error);
+  //       }
+  //     );
+  // }, []);
 
   return (
+    <>
     <Router>
       
       <div>
@@ -51,6 +52,7 @@ function App() {
         </Routes>
       </div>
     </Router>
+    </>
   );
 }
 

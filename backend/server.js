@@ -22,7 +22,10 @@
 // });
 
 // DEPENDENCIES
-import { createClient } from '@supabase/supabase-js'
+// import { createClient } from '@supabase/supabase-js'
+const usersRouter = require('./controllers/users_controller.js');
+// const workoutsRouter = require('./controllers/workouts_controller.js');
+// app.use('/api/workouts', workoutsRouter);
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
@@ -42,13 +45,14 @@ require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use('/api/users', usersRouter);
 
 // CONTROLLERS
 const usersController = require('./controllers/users_controller.js');
 app.use('/api/users', usersController);
 
-const workoutsController = require('./controllers/workouts_controller.js');
-app.use('/api/workouts', workoutsController);
+// const workoutsController = require('./controllers/workouts_controller.js');
+// app.use('/api/workouts', workoutsController);
 
 
 
@@ -59,4 +63,3 @@ app.listen(8080, () => {
     console.log(`Server is running on port 8080`);
 });
 
-console.log("hello world")
