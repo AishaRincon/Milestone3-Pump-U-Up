@@ -9,6 +9,7 @@ function LoginPage() {
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [showSignUpForm, setShowSignUpForm] = useState(false);
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const navigate = useNavigate();
@@ -24,6 +25,9 @@ function LoginPage() {
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
   };
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
@@ -33,14 +37,23 @@ const handleLoginSubmit = async (e) => {
   e.preventDefault();
   try {
     // const response = await fetch('/api/users/login', {
+    console.log('username:', username); // debugging to find out why username is not being sent to backend
+    console.log('password:', password); // debugging to find out why password is not being sent to backend
     const response = await fetch(`http://localhost:8080/api/users/login`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
       body: JSON.stringify({ username, password })
     });
     const data = await response.json();
     // handle response from backend here
-    if(response.ok) {
+    if(response.status === 200) {
+      // setUsername(data.username);
+      // setPassword(data.password);
+      // localStorage.setItem('username', data.username);
+      localStorage.setItem('token', data.token);
       console.log('login successful');
       // redirect to userHome
       navigate('/userHome');
@@ -65,15 +78,21 @@ const handleSignUpSubmit = async (e) => {
 // if username is taken, display error message (choose another username)
 // if username is not taken, create new user and redirect to userHome
 try {
+  console.log('username:', username); // debugging to find out why username is not being sent to backend
+  console.log('password:', password); // debugging to find out why password is not being sent to backend
   const response = await fetch('http://localhost:8080/api/users/signup', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password })
+    headers: { 
+      'Content-Type': 'application/json',
+      'credentials': 'include' 
+    },
+    body: JSON.stringify({ username, password, email })
   });
   const data = await response.json();
+  console.log('data:', data);
   console.log(response)
   // handle response from backend here
-  if(data.success) {
+  if(response.status === 200) {
     console.log('signup successful');
     // message to user that signup was successful
     // document.getElementById('message').textContent = 'Account created. Let\'s Pump-U-Up!';
@@ -129,6 +148,8 @@ try {
               <Form.Control type="text" placeholder="Enter username" value={username} onChange={handleUsernameChange} />
               <Form.Label>Password</Form.Label> 
               <Form.Control type="password" placeholder="Enter password" value={password} onChange={handlePasswordChange} />
+              <Form.Label>Email</Form.Label> 
+              <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmailChange} required />
             </Form.Group>
             <div className="text-center">
               <Button variant="primary" type="submit">Let's Pump-U-Up!</Button>

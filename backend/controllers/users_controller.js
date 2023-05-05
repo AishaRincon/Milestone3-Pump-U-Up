@@ -4,6 +4,7 @@ const db = require('../models');
 const jwt = require('json-web-token');
 const bcrypt = require('bcrypt');
 const { User } = db;
+// const authController = require('./auth_controller.js');
 
 
 // POST user (create user in supabase table)
@@ -27,31 +28,40 @@ const { User } = db;
 //     }
 // })
 
+// // route for retrieving user
+// users.get('/user', authController.authenticate, (req, res) => {
+//     res.json(req.user);
+// });
+
 // POST route for user login
 users.post('/login', async (req, res) => {
     try {
-    const { username, password } = req.body;
-    // retrieve user from database
-    const user = await User.findOne({ where: { username: username } });
+        const { username, password } = req.body;
+        // retrieve user from database
+        const user = await User.findOne({ where: { username: username } });
     
     // if no user found, send error response (user not found)
     if (!user) {
+        console.log('no user found')
         return res.status(401).json({error: 'Invalid username'});
     }
-
+console.log(password)
     // if user found, check password against hashed password
-    const matchedPassword = await bcrypt.compare(password, user.password);
-
+    const hashedPassword = await bcrypt.hash(password,10);
+    console.log(hashedPassword)
+    console.log(user.password)
     // if password is not a match, send error response (invalid password)
-    if (!matchedPassword) {
+    if(!await bcrypt.compare(password, user.password)) {
+        console.log('password not matched')
+        console.log(username, password)
         return res.status(401).json({ error: 'Incorrect password'});
     }
 
     // if password is correct, create token with user id as payload
-    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
-
+    const token = jwt.encode(process.env.JWT_SECRET, { userId: user.id });
+console.log(token)
     // return token to client
-    res.status(200).json({ token: token });
+    res.status(200).json({ user: user, token: token.value });
 } catch (err) {
     res.status(500).json({ error: 'Error logging in' });
 }
@@ -67,31 +77,31 @@ users.post('/login', async (req, res) => {
 // POST route for user signup
 users.post('/signup', async (req, res) => {
     const { username, password, email } = req.body;
-
+console.log(username, password, email)
     try {
         // hash password
-        const matchedPassword = await bcrypt.hash(password, 10);
+        const hashedPassword = await bcrypt.hash(password, 10);
 
         // insert user in supabase table
-            const {data, error} = await supabase
-            .from('users')
-            .insert([
-                { username: username, password: password, email: email }
-            ]);
-            if (error) throw error;
+            // const {data, error} = await supabase
+            // .from('users')
+            // .insert([
+            //     { username: username, password: hashedPassword, email: email }
+            // ]);
+            // if (error) throw error;
 
             // create user in local database
-            const user = await User.create({
+            await User.create({
                 username: username,
-                password: matchedPassword,
+                password: hashedPassword,
                 email: email
             });
 
             // create token with user id as payload
-            const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
+            // const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
 
             // return token to client
-            res.status(200).json({ token: token });
+            res.status(200).json({ message: 'User created' });
         }
         catch (err) {
             res.status(400).json({ error: 'Error creating user' })

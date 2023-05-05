@@ -22,30 +22,27 @@
 // });
 
 // DEPENDENCIES
-// import { createClient } from '@supabase/supabase-js'
-
-// const workoutsRouter = require('./controllers/workouts_controller.js');
-// app.use('/api/workouts', workoutsRouter);
-require('dotenv').config();
-const jwt = require('json-web-token');
-const bcrypt = require('bcrypt');
 const express = require('express');
-const cors = require('cors');
 const app = express();
 const { Sequelize } = require('sequelize');
+const jwt = require('json-web-token');
+const bcrypt = require('bcrypt');
+const cors = require('cors');
 const path = require('path');
 const { User } = require('./models');
 const { Workout } = require('./models');
-// const usersRouter = require('./controllers/users_controller.js');
-
-
-
 
 // MIDDLEWARE
 require('dotenv').config();
-app.use(cors());
+// allow cross-origin requests
+app.use(cors({ origin: '*', credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// const usersRouter = require('./controllers/users_controller.js');
+// const workoutsRouter = require('./controllers/workouts_controller.js');
+// app.use('/api/workouts', workoutsRouter);
+
 // app.use('/api/users', usersRouter);
 
 // CONTROLLERS
