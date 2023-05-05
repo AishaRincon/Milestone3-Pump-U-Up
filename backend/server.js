@@ -23,11 +23,11 @@
 
 // DEPENDENCIES
 // import { createClient } from '@supabase/supabase-js'
-const usersRouter = require('./controllers/users_controller.js');
+
 // const workoutsRouter = require('./controllers/workouts_controller.js');
 // app.use('/api/workouts', workoutsRouter);
 require('dotenv').config();
-const jwt = require('jsonwebtoken');
+const jwt = require('json-web-token');
 const bcrypt = require('bcrypt');
 const express = require('express');
 const cors = require('cors');
@@ -36,6 +36,7 @@ const { Sequelize } = require('sequelize');
 const path = require('path');
 const { User } = require('./models');
 const { Workout } = require('./models');
+// const usersRouter = require('./controllers/users_controller.js');
 
 
 
@@ -45,7 +46,7 @@ require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use('/api/users', usersRouter);
+// app.use('/api/users', usersRouter);
 
 // CONTROLLERS
 const usersController = require('./controllers/users_controller.js');
