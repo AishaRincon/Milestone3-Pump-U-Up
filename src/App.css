@@ -76,6 +76,17 @@
 
 }
 
+.error {
+  width: 25%;
+  height: 25%;
+  align-items: center;
+}
+
+h1 {
+  font-family: Bebas Neue;
+  color: #0000
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
