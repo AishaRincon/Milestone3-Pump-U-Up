@@ -67,13 +67,7 @@ console.log(token)
 }
 });
 
-// route for user signup
-// app.post('/api/signup', async (req, res) => {
-//     const { username, password, email } = req.body;
 
-//     try {
-//         // hash password
-//         const matchedPassword = await bcrypt.hash(password, 10);
 // POST route for user signup
 users.post('/signup', async (req, res) => {
     const { username, password, email } = req.body;
@@ -81,14 +75,6 @@ console.log(username, password, email)
     try {
         // hash password
         const hashedPassword = await bcrypt.hash(password, 10);
-
-        // insert user in supabase table
-            // const {data, error} = await supabase
-            // .from('users')
-            // .insert([
-            //     { username: username, password: hashedPassword, email: email }
-            // ]);
-            // if (error) throw error;
 
             // create user in local database
             await User.create({
