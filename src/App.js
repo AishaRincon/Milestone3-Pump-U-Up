@@ -46,7 +46,7 @@ function App() {
           <Route path='/logout' element={<LoginPage />} />
           <Route path="/*" element={<FourOhFourPage error={error} />} />
           <Route path="/upper-body" element={<UpperBody />} />
-        <Route path="/lower-Body" element={<LowerBody />} />
+        <Route path="/lower-body" element={<LowerBody />} />
         <Route path="/core" element={<Core />} />
           
         </Routes>
