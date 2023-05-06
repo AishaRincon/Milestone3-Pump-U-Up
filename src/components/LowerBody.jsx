@@ -2,7 +2,7 @@ import React from 'react';
 
 const LowerBody = () => {
   return (
-    <div>
+    <div className= 'lower-body'>
       <h2>Lower Body Exercises</h2>
       <ul>
         <li>Squats</li>

@@ -5,6 +5,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 
 function NavMenu() {
   return (
+    <>
     <Navbar bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="/userHome">Home</Navbar.Brand>
@@ -14,6 +15,7 @@ function NavMenu() {
           </Nav>
       </Container>
     </Navbar>
+    </>
   );
 }
 

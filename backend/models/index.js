@@ -42,4 +42,4 @@ db.Sequelize = Sequelize;
 
 module.exports = db;
 
-console.log("hello world")
+

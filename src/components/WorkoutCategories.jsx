@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 function WorkoutCategories ({ activities }) {
   return (
     <div>
-      {/* <Navbar/> */}
       <h1>Choose your workout!</h1>
       <div className="workouts-container">
         
