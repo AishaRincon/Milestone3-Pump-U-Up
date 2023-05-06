@@ -10,7 +10,7 @@ function WorkoutCategories ({ activities }) {
       <div className="workouts-container">
         
         
-        <Link to="/upper-Body" className="box">
+        <Link to="/upper-body" className="box">
           Upper Body
         </Link>
         <Link to="/lower-body" className="box">
