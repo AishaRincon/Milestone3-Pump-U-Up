@@ -2,7 +2,7 @@ import React from 'react';
 
 const UpperBody = () => {
   return (
-    <div>
+    <div className='upper-body'>
       <h2>Upper Body Exercises</h2>
       <ul>
         <li>Bench Press</li>

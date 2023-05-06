@@ -107,6 +107,45 @@ p {
   text-align: center;
 }
 
+.upper-body {
+  color: black;
+  text-align: center;
+  font-size: larger;
+}
+
+.upper-body li {
+  list-style-type: none;
+  padding: 25px;
+  display: inline-block;
+  margin-top: 50px;
+}
+
+.lower-body {
+  color: black;
+  text-align: center;
+  font-size: larger;
+}
+
+.lower-body li {
+  list-style-type: none;
+  padding: 25px;
+  display: inline-block;
+  margin-top: 50px;
+}
+
+.core {
+  color: black;
+  font-size: larger;
+  text-align: center;
+}
+
+.core li {
+  list-style-type: none;
+  padding: 25px;
+  display: inline-block;
+  margin-top: 50px;
+}
+
 .center {
   display: flex;
   justify-content: center;
