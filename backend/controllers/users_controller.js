@@ -6,28 +6,6 @@ const bcrypt = require('bcrypt');
 const { User } = db;
 // const authController = require('./auth_controller.js');
 
-
-// POST user (create user in supabase table)
-// users.post('/', async (req, res) => {
-//     try {
-//         // code for creating user
-//         const { username, password, email } = req.body;
-//         const user = await User.create({ username, password, email });
-
-//         // insert user in supabase table
-//         const { data, error } = await supabase
-//             .from('users')
-//             .insert([
-//                 { username: username, password: password, email: email }
-//             ])
-//         if (error) throw error;
-//         res.status(201).json(data);
-//     } catch (err) {
-//         res.status(500).send("Error creating user")
-//         console.log(err)
-//     }
-// })
-
 // // route for retrieving user
 // users.get('/user', authController.authenticate, (req, res) => {
 //     res.json(req.user);
@@ -67,13 +45,7 @@ console.log(token)
 }
 });
 
-// route for user signup
-// app.post('/api/signup', async (req, res) => {
-//     const { username, password, email } = req.body;
 
-//     try {
-//         // hash password
-//         const matchedPassword = await bcrypt.hash(password, 10);
 // POST route for user signup
 users.post('/signup', async (req, res) => {
     const { username, password, email } = req.body;
@@ -81,14 +53,6 @@ console.log(username, password, email)
     try {
         // hash password
         const hashedPassword = await bcrypt.hash(password, 10);
-
-        // insert user in supabase table
-            // const {data, error} = await supabase
-            // .from('users')
-            // .insert([
-            //     { username: username, password: hashedPassword, email: email }
-            // ]);
-            // if (error) throw error;
 
             // create user in local database
             await User.create({
@@ -107,13 +71,6 @@ console.log(username, password, email)
             res.status(400).json({ error: 'Error creating user' })
         }
     });
-
-//         // create user in supabase table
-//         const user = await user.create({
-//             username: username,
-//             password: matchedPassword,
-//             email: email
-//         });
 
 //         // create token with user id as payload
 //         const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
