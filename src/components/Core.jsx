@@ -2,7 +2,7 @@ import React from 'react';
 
 const Core = () => {
   return (
-    <div>
+    <div className='core'>
       <h2>Core Exercises</h2>
       <ul>
         <li>Planks</li>
