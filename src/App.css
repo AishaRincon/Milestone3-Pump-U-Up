@@ -11,10 +11,6 @@
   justify-content: center;
 }
 
-/* .wrapper {
-  padding: 20px;
-} */
-
 * {
   margin: 0;
   padding: 0;
@@ -25,6 +21,7 @@
   background-color: #fefae0;
   font-family: Bebas Neue;
   color: #FEFAE0;
+  height: 100vh;
 }
 
 .workouts-container {
@@ -91,12 +88,14 @@
   padding: 20px;
 }
 
+
 .card-container {
   display: inline-block;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: #606C38;
+  border-radius: 5%;
   
 }
 

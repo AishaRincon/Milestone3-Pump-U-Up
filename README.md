@@ -29,7 +29,6 @@
 * Express Version (https://expressjs.com/) 4.18.2
 * Sequelize Version (https://sequelize.org/) 6.28.0
 * Node-Postgres (https://www.npmjs.com/package/pg) Version 8.9.0
-* Deployed using Heroku <span><img src="src/assets/heroku.png" alt="Heroku">
 
 ## Collaborators:
 * Benjamin Farmer
