@@ -14,7 +14,7 @@
 ## Pump-U-Up Demo
 
 <p align="center">
-<img src="src/img/pump-u-up-demo.gif" alt="Pump-U-Up demo">
+<img src="src/assets/pump-u-up-demo.gif" alt="Pump-U-Up demo">
 </p>
 
 <br/>
