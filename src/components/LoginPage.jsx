@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import {Card, Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 import '../App.css';
@@ -127,12 +127,16 @@ try {
           </Button>
         </div>
       </div>
-        {showLoginForm && (
-          <Form onSubmit={handleLoginSubmit} className=''>
-            <Form.Group controlId="formBasicUsername"> {/* form-group is a bootstrap class */} 
-              <Form.Label>Username </Form.Label > 
-              <Form.Control type="text"  placeholder="Enter username" value={username} onChange={handleUsernameChange} required/>
-              <Form.Label>Password</Form.Label> 
+      {showLoginForm && (
+      <Card>
+        <Card.Body>
+          <Form onSubmit={handleLoginSubmit} className='login-form card-container login-card'>
+            <Form.Group controlId="formBasicUsername">
+              <Form.Label>Username </Form.Label>
+              <Form.Control type="text" placeholder="Enter username" value={username} onChange={handleUsernameChange} required />
+            </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Enter password" value={password} onChange={handlePasswordChange} required />
             </Form.Group>
             <div className="text-center">
@@ -140,9 +144,13 @@ try {
             </div>
             <div id="message"></div>
           </Form>
+        </Card.Body>
+      </Card>
         )}
         {showSignUpForm && (
-          <Form onSubmit={handleSignUpSubmit}>
+          <Card>
+          <Card.Body>
+          <Form onSubmit={handleSignUpSubmit} className='sign-up-form sign-card-container sign-up-card'>
             <Form.Group controlId="formBasicUsername"> {/* form-group is a bootstrap class */} 
               <Form.Label>Username</Form.Label> 
               <Form.Control type="text" placeholder="Enter username" value={username} onChange={handleUsernameChange} />
@@ -155,6 +163,8 @@ try {
               <Button variant="primary" type="submit">Let's Pump-U-Up!</Button>
             </div>
           </Form>
+          </Card.Body>
+      </Card>
         )}
     </>
   );
