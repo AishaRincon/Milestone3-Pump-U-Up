@@ -15,6 +15,7 @@ function AddWorkoutForm({ onAdd }) {
    };
 
   return (
+    <>
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="workout">Workout:</label>
@@ -48,6 +49,7 @@ function AddWorkoutForm({ onAdd }) {
       </div>
       <button type="submit">Add Workout</button>
     </form>
+    </>
   );
 }
 

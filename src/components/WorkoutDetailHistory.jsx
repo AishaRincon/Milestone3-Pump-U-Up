@@ -10,7 +10,8 @@ function WorkoutDetailHistory(props) {
   useEffect(() => {
     async function fetchWorkout() {
       try {
-        const response = await fetch(`${process.env.REACT_APP_FETCH_URI}/api/workouts/${props.id}`);
+        // const response = await fetch(`${process.env.REACT_APP_FETCH_URI}/api/workouts/${props.id}`);
+        const response = await fetch(`http://localhost:8080/api/workouts/${props.id}`);
         const data = await response.json();
         setWorkout(data);
       } catch (error) {
