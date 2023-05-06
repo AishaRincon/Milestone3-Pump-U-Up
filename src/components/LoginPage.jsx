@@ -50,8 +50,6 @@ const handleLoginSubmit = async (e) => {
     const data = await response.json();
     // handle response from backend here
     if(response.status === 200) {
-      // setUsername(data.username);
-      // setPassword(data.password);
       // localStorage.setItem('username', data.username);
       localStorage.setItem('token', data.token);
       console.log('login successful');
@@ -62,15 +60,7 @@ const handleLoginSubmit = async (e) => {
     console.error('Error:', error);
   }
 };
-//   const handleLoginSubmit = (e) => {
-//     e.preventDefault();
-//  //check if username and password are correct
-    
-//     //if correct, redirect to userHome
-//     //if incorrect, display error message (username or password is incorrect)
 
-
-// }
 
 const handleSignUpSubmit = async (e) => {
   e.preventDefault();

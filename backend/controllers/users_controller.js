@@ -6,28 +6,6 @@ const bcrypt = require('bcrypt');
 const { User } = db;
 // const authController = require('./auth_controller.js');
 
-
-// POST user (create user in supabase table)
-// users.post('/', async (req, res) => {
-//     try {
-//         // code for creating user
-//         const { username, password, email } = req.body;
-//         const user = await User.create({ username, password, email });
-
-//         // insert user in supabase table
-//         const { data, error } = await supabase
-//             .from('users')
-//             .insert([
-//                 { username: username, password: password, email: email }
-//             ])
-//         if (error) throw error;
-//         res.status(201).json(data);
-//     } catch (err) {
-//         res.status(500).send("Error creating user")
-//         console.log(err)
-//     }
-// })
-
 // // route for retrieving user
 // users.get('/user', authController.authenticate, (req, res) => {
 //     res.json(req.user);
@@ -93,13 +71,6 @@ console.log(username, password, email)
             res.status(400).json({ error: 'Error creating user' })
         }
     });
-
-//         // create user in supabase table
-//         const user = await user.create({
-//             username: username,
-//             password: matchedPassword,
-//             email: email
-//         });
 
 //         // create token with user id as payload
 //         const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
